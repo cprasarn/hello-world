@@ -13,5 +13,9 @@ func main() {
 		c.String(http.StatusOK, "hello world")
 	})
 
-	r.Run(":8081")
+	r.GET("/health", func(c *gin.Context) {
+		c.String(http.StatusOK, "ok")
+	})
+
+	r.Run(":8080")
 }
